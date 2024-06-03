@@ -1,8 +1,12 @@
-"""
-    配置了 SimNow 常用的四个环境
-    可以使用监控平台 http://openctp.cn 查看前置服务是否正常
-"""
+# @Project: https://github.com/Jedore/ctp.examples
+# @File:    base.py
+# @Time:    03/06/2024 21:38
+# @Author:  Jedore
+# @Eamil:   jedorefight@gmail.com
+# @Addr:    https://github.com/Jedore
 
+# 配置了 SimNow 常用的四个环境
+# 可以使用监控平台 http://openctp.cn 查看前置服务是否正常
 # 也可以按需配置其他的支持 ctp官方ctpapi库的柜台
 # 注意需要同时修改相应的 user/password/broker_id/authcode/appid 等信息
 
@@ -26,11 +30,11 @@ fronts = {
     },
 }
 
-# 投资者ID / 密码
-user = "xxx"
-password = "xxxx"
+# 在SimNow申请的 投资者ID / 密码
+user_id = "xxx"
+password = "xxx"
 
-# 以下为连接 SimNow 环境的固定值
+# 以下是连接 SimNow 环境的固定值
 broker_id = "9999"
 authcode = "0000000000000000"
 appid = "simnow_client_test"
