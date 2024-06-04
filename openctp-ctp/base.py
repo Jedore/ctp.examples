@@ -65,7 +65,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
     def is_login(self):
         return self._is_login
 
-    def release(self):
+    def __del__(self):
         # 释放实例
         self._api.Release()
 

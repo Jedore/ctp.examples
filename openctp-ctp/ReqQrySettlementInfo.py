@@ -53,4 +53,4 @@ if __name__ == '__main__':
 
     spi.ReqQrySettlementInfo()
 
-    input("\n\n Enter any key to exit ...")
+    input("\n\n Enter any key to exit ...\n")
