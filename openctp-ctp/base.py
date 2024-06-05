@@ -17,7 +17,7 @@ import config
 
 class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
 
-    def __init__(self, front=config.fronts["7x24"]["td"], user_id=config.user_id, password=config.password,
+    def __init__(self, front=config.fronts["hy"]["td"], user_id=config.user_id, password=config.password,
                  authcode=config.authcode, appid=config.appid, broker_id=config.broker_id):
         super().__init__()
 
@@ -30,6 +30,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         self._broker_id = broker_id
 
         self._is_login = False
+        self._is_last = False
         self._trading_day = ""
 
         self._front_id = None
@@ -75,6 +76,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         # 打印请求
         params = []
         for name, value in inspect.getmembers(req):
+            # 输出所有首字母大写的字段
             if name[0].isupper():
                 params.append(f"{name}={value}")
         print(" 发送请求:", ",".join(params))
@@ -95,14 +97,20 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         :return: True: 成功   False: 失败
         """
 
+        self._is_last = is_last
+
         if pRspInfo and pRspInfo.ErrorID != 0:
             print(f" 响应失败: ErrorID={pRspInfo.ErrorID}, ErrorMsg={pRspInfo.ErrorMsg}")
             return False
 
-        print(f" 响应成功: ErrorID={pRspInfo.ErrorID}, ErrorMsg={pRspInfo.ErrorMsg}")
+        if pRspInfo:
+            print(f" 响应成功: ErrorID={pRspInfo.ErrorID}, ErrorMsg={pRspInfo.ErrorMsg}")
+        else:
+            print(f" 响应成功: None")
         if rsp:
             params = []
             for name, value in inspect.getmembers(rsp):
+                # 输出所有首字母大写的字段
                 if name[0].isupper():
                     params.append(f"{name}={value}")
             print(" 响应内容:", ",".join(params))
@@ -193,8 +201,15 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
             if self.is_login:
                 break
 
+    def wait_last(self):
+        while True:
+            time.sleep(1)
+            if self._is_last:
+                break
+        input("\n\n Enter any key to exit ...\n")
+
 
 if __name__ == "__main__":
     spi = CTdSpiBase()
 
-    input("\n\n Enter any key to exit ...")
+    spi.wait_last()

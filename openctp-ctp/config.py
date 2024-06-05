@@ -28,13 +28,24 @@ fronts = {
         "td": "tcp://218.202.237.33:10203",
         "md": "tcp://218.202.237.33:10213",
     },
+    "hy": {
+        "td": "tcp://180.169.112.52:42205",
+        "md": "tcp://218.202.237.33:10213",
+    },
 }
 
-# 在SimNow申请的 投资者ID / 密码
-user_id = "xxx"
-password = "xxx"
+# 投资者ID / 密码
+# user_id = "058762"
+# password = "Jt14235678"
+# user_id = "226485"
+# password = "sWJedore20@#0807"
+user_id = "901210322"
+password = "hGJedore20240807"
 
 # 以下是连接 SimNow 环境的固定值
-broker_id = "9999"
-authcode = "0000000000000000"
-appid = "simnow_client_test"
+# broker_id = "9999"
+# authcode = "0000000000000000"
+# appid = "simnow_client_test"
+broker_id = "1080"
+authcode = "Z1KJIJ5ZVIQ3BGYR"
+appid = "client_jctp_1.0.0"

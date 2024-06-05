@@ -14,8 +14,10 @@ class CTdSpi(CTdSpiBase):
 
         self.content = b""
 
-    def ReqQrySettlementInfo(self):
-        """ 请求查询投资者结算结果 """
+    def req(self):
+        """ 请求查询投资者结算结果
+        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYSETTLEMENTINFO/
+        """
 
         self.print("请求查询投资者结算结果")
         # 可以查询当天或历史结算单，也可以查询月结算单，但是前提是CTP柜台生成了相应的日或月结算单。
@@ -25,13 +27,8 @@ class CTdSpi(CTdSpiBase):
         # req.TradingDay = ""  # 交易日 日结算单: yymmdd, 月结算单: yymm
         self._check_req(req, self._api.ReqQrySettlementInfo(req, 0))
 
-    def OnRspQrySettlementInfo(
-            self,
-            pSettlementInfo: tdapi.CThostFtdcSettlementInfoField,
-            pRspInfo: tdapi.CThostFtdcRspInfoField,
-            nRequestID: int,
-            bIsLast: bool,
-    ):
+    def OnRspQrySettlementInfo(self, pSettlementInfo: tdapi.CThostFtdcSettlementInfoField,
+                               pRspInfo: tdapi.CThostFtdcRspInfoField, nRequestID: int, bIsLast: bool):
         """ 请求查询投资者结算结果响应 """
 
         if pRspInfo and pRspInfo.ErrorID:
@@ -50,7 +47,6 @@ class CTdSpi(CTdSpiBase):
 
 if __name__ == '__main__':
     spi = CTdSpi()
+    spi.req()
 
-    spi.ReqQrySettlementInfo()
-
-    input("\n\n Enter any key to exit ...\n")
+    spi.wait_last()
