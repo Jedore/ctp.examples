@@ -1,5 +1,5 @@
 # @Project: https://github.com/Jedore/ctp.examples
-# @File:    base.py
+# @File:    base_tdapi.py
 # @Time:    03/06/2024 21:38
 # @Author:  Jedore
 # @Eamil:   jedorefight@gmail.com
@@ -17,8 +17,9 @@ import config
 
 class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
 
-    def __init__(self, front=config.fronts["hy"]["td"], user_id=config.user_id, password=config.password,
-                 authcode=config.authcode, appid=config.appid, broker_id=config.broker_id):
+    def __init__(self, front=config.fronts["电信1"]["td"], user_id=config.user_id, password=config.password,
+                 authcode=config.authcode, appid=config.appid, broker_id=config.broker_id,
+                 user_product_info=config.user_product_info):
         super().__init__()
 
         self.print("启动交易Api")
@@ -28,6 +29,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         self._authcode = authcode
         self._appid = appid
         self._broker_id = broker_id
+        self._user_product_info = user_product_info
 
         self._is_login = False
         self._is_last = False
@@ -120,13 +122,13 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         return True
 
     @staticmethod
-    def print_rsp_rtn(prefix, rsp_rtn):
+    def print_rtn(rsp_rtn):
         if rsp_rtn:
             params = []
             for name, value in inspect.getmembers(rsp_rtn):
                 if name[0].isupper():
                     params.append(f"{name}={value}")
-            print(">", prefix, ",".join(params))
+            print(" 通知:", ",".join(params))
 
     @staticmethod
     def print(*args, **kwargs):
@@ -143,19 +145,15 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         req.UserID = self._user_id
         req.AppID = self._appid
         req.AuthCode = self._authcode
+        req.UserProductInfo = self._user_product_info
         self._check_req(req, self._api.ReqAuthenticate(req, 0))
 
     def OnFrontDisconnected(self, nReason: int):
         """交易前置连接断开"""
         self.print("交易前置连接断开: nReason=", nReason)
 
-    def OnRspAuthenticate(
-            self,
-            pRspAuthenticateField: tdapi.CThostFtdcRspAuthenticateField,
-            pRspInfo: tdapi.CThostFtdcRspInfoField,
-            nRequestID: int,
-            bIsLast: bool,
-    ):
+    def OnRspAuthenticate(self, pRspAuthenticateField: tdapi.CThostFtdcRspAuthenticateField,
+                          pRspInfo: tdapi.CThostFtdcRspInfoField, nRequestID: int, bIsLast: bool):
         """ 客户端认证响应 """
         if not self._check_rsp(pRspInfo, pRspAuthenticateField):
             return
@@ -166,6 +164,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         req.BrokerID = self._broker_id
         req.UserID = self._user_id
         req.Password = self._password
+        req.UserProductInfo = self._user_product_info
         if sys.platform == "darwin":
             # Mac
             self._check_req(req, self._api.ReqUserLogin(req, 0, 0, ""))
@@ -173,13 +172,8 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
             # Linux/Windows
             self._check_req(req, self._api.ReqUserLogin(req, 0))
 
-    def OnRspUserLogin(
-            self,
-            pRspUserLogin: tdapi.CThostFtdcRspUserLoginField,
-            pRspInfo: tdapi.CThostFtdcRspInfoField,
-            nRequestID: int,
-            bIsLast: bool,
-    ):
+    def OnRspUserLogin(self, pRspUserLogin: tdapi.CThostFtdcRspUserLoginField, pRspInfo: tdapi.CThostFtdcRspInfoField,
+                       nRequestID: int, bIsLast: bool):
         """ 登录请求响应 """
         if not self._check_rsp(pRspInfo, pRspUserLogin):
             return

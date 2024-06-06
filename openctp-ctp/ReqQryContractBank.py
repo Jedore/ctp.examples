@@ -5,7 +5,7 @@
 # @Eamil:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
-from base import CTdSpiBase, tdapi
+from base_tdapi import CTdSpiBase, tdapi
 
 
 class CTdSpi(CTdSpiBase):
@@ -16,7 +16,8 @@ class CTdSpi(CTdSpiBase):
         """ 请求查询签约银行
         doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYCONTRACTBANK
         """
-        # 期货公司的签约银行， 需实盘测试
+
+        # SimNow 不支持，需要实盘测验
         self.print("请求查询签约银行")
         req = tdapi.CThostFtdcQryContractBankField()
         req.BrokerID = self._broker_id

@@ -5,7 +5,7 @@
 # @Eamil:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
-from base import CTdSpiBase, tdapi
+from base_tdapi import CTdSpiBase, tdapi
 
 
 class CTdSpi(CTdSpiBase):

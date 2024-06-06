@@ -1,0 +1,39 @@
+# @Project: https://github.com/Jedore/ctp.examples
+# @File:    SubscribeMarketData.py
+# @Time:    06/06/2024 21:58
+# @Author:  Jedore
+# @Eamil:   jedorefight@gmail.com
+# @Addr:    https://github.com/Jedore
+
+from base_mdapi import CMdSpiBase, mdapi
+
+
+class CMdSpi(CMdSpiBase):
+    def __init__(self, *args):
+        super().__init__(*args)
+
+    def req(self, instruments):
+        """ 订阅行情
+        doc: https://ctpapi.jedore.top/6.7.2/HQJK/CTHOSTFTDCMDAPI/SUBSCRIBEMARKETDATA/
+        """
+
+        self.print("订阅行情")
+        encode_instruments = [i.encode('utf-8') for i in instruments]
+        self._check_req(instruments, self._api.SubscribeMarketData(encode_instruments, len(instruments)))
+
+    def OnRspSubMarketData(self, pSpecificInstrument: mdapi.CThostFtdcSpecificInstrumentField,
+                           pRspInfo: mdapi.CThostFtdcRspInfoField, nRequestID: int, bIsLast: bool):
+        """ 订阅行情响应 """
+
+        self._check_rsp(pRspInfo, pSpecificInstrument, is_last=bIsLast)
+
+    def OnRtnDepthMarketData(self, pDepthMarketData: mdapi.CThostFtdcDepthMarketDataField):
+        """ 行情通知 """
+        self.print_rtn(pDepthMarketData)
+
+
+if __name__ == '__main__':
+    spi = CMdSpi()
+    spi.req(['CF407', 'CF409'])
+
+    spi.wait_last()
