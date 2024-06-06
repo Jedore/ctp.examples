@@ -38,3 +38,4 @@ password = "xxx"
 broker_id = "9999"
 authcode = "0000000000000000"
 appid = "simnow_client_test"
+user_product_info = ''
