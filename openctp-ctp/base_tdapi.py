@@ -80,6 +80,8 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         for name, value in inspect.getmembers(req):
             # 输出所有首字母大写的字段
             if name[0].isupper():
+                if 'Password' in name:
+                    continue
                 params.append(f"{name}={value}")
         print(" 发送请求:", ",".join(params))
 
