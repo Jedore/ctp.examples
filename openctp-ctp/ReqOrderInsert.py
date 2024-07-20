@@ -2,15 +2,13 @@
 # @File:    ReqOrderInsert.py
 # @Time:    06/06/2024 22:21
 # @Author:  Jedore
-# @Eamil:   jedorefight@gmail.com
+# @Email:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
 from base_tdapi import CTdSpiBase, tdapi
 
 
 class CTdSpi(CTdSpiBase):
-    def __init__(self, *args):
-        super().__init__(*args)
 
     def req(self):
         """ 报单录入请求

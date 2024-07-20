@@ -2,15 +2,13 @@
 # @File:    ReqQryProduct.py
 # @Time:    05/06/2024 22:16
 # @Author:  Jedore
-# @Eamil:   jedorefight@gmail.com
+# @Email:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
 from base_tdapi import CTdSpiBase, tdapi
 
 
 class CTdSpi(CTdSpiBase):
-    def __init__(self, *args):
-        super().__init__(*args)
 
     def req(self):
         """ 请求查询产品
@@ -19,7 +17,7 @@ class CTdSpi(CTdSpiBase):
 
         self.print("请求查询产品")
         req = tdapi.CThostFtdcQryProductField()
-        req.ProductID = "ag"  # 不传则查询所有产品
+        # req.ProductID = "ag"  # 不传则查询所有产品
         self._check_req(req, self._api.ReqQryProduct(req, 0))
 
     def OnRspQryProduct(self, pProduct: tdapi.CThostFtdcProductField, pRspInfo: tdapi.CThostFtdcRspInfoField,

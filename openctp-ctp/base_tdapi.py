@@ -2,13 +2,14 @@
 # @File:    base_tdapi.py
 # @Time:    03/06/2024 21:38
 # @Author:  Jedore
-# @Eamil:   jedorefight@gmail.com
+# @Email:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
 import inspect
 import os.path
 import sys
 import time
+from datetime import datetime as dt
 
 from openctp_ctp import tdapi
 
@@ -17,19 +18,17 @@ import config
 
 class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
 
-    def __init__(self, front=config.fronts["电信1"]["td"], user_id=config.user_id, password=config.password,
-                 authcode=config.authcode, appid=config.appid, broker_id=config.broker_id,
-                 user_product_info=config.user_product_info):
+    def __init__(self, conf=config.envs["7x24"]):
         super().__init__()
 
         self.print("启动交易Api")
-        self._front = front
-        self._user_id = user_id
-        self._password = password
-        self._authcode = authcode
-        self._appid = appid
-        self._broker_id = broker_id
-        self._user_product_info = user_product_info
+        self._front = conf.get("td")
+        self._user_id = conf.get("user_id")
+        self._password = conf.get("password")
+        self._authcode = conf.get("authcode")
+        self._appid = conf.get("appid")
+        self._broker_id = conf.get("broker_id")
+        self._user_product_info = conf.get("user_product_info")
 
         self._is_login = False
         self._is_last = False
@@ -72,7 +71,8 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         # 释放实例
         self._api.Release()
 
-    def _check_req(self, req, ret: int):
+    @staticmethod
+    def _check_req(req, ret: int):
         """检查请求"""
 
         # 打印请求
@@ -80,6 +80,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         for name, value in inspect.getmembers(req):
             # 输出所有首字母大写的字段
             if name[0].isupper():
+                # 过滤密码字段
                 if 'Password' in name:
                     continue
                 params.append(f"{name}={value}")
@@ -109,8 +110,9 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
 
         if pRspInfo:
             print(f" 响应成功: ErrorID={pRspInfo.ErrorID}, ErrorMsg={pRspInfo.ErrorMsg}")
-        else:
-            print(f" 响应成功: None")
+        # else:
+        #     print(f" 响应成功: pRspInfo is None")
+
         if rsp:
             params = []
             for name, value in inspect.getmembers(rsp):
@@ -135,6 +137,7 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
     @staticmethod
     def print(*args, **kwargs):
         print(">>>> ", *args, **kwargs)
+        print(dt.now().strftime(" [%Y-%m-%d %H:%M:%S.%f]"))
 
     def OnFrontConnected(self):
         """交易前置连接成功"""

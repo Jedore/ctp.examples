@@ -2,15 +2,15 @@
 # @File:    ReqQrySettlementInfoo.py
 # @Time:    03/06/2024 21:38
 # @Author:  Jedore
-# @Eamil:   jedorefight@gmail.com
+# @Email:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
 from base_tdapi import CTdSpiBase, tdapi
 
 
 class CTdSpi(CTdSpiBase):
-    def __init__(self, *args):
-        super().__init__(*args)
+    def __init__(self):
+        super().__init__()
 
         self.content = b""
 

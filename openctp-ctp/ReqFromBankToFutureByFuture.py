@@ -2,15 +2,13 @@
 # @File:    ReqFromBankToFutureByFuture.py
 # @Time:    06/06/2024 21:05
 # @Author:  Jedore
-# @Eamil:   jedorefight@gmail.com
+# @Email:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
 from base_tdapi import CTdSpiBase, tdapi
 
 
 class CTdSpi(CTdSpiBase):
-    def __init__(self, *args):
-        super().__init__(*args)
 
     def req(self):
         """ 期货发起银行资金转期货请求

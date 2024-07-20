@@ -2,15 +2,13 @@
 # @File:    SubscribeMarketData.py
 # @Time:    06/06/2024 21:58
 # @Author:  Jedore
-# @Eamil:   jedorefight@gmail.com
+# @Email:   jedorefight@gmail.com
 # @Addr:    https://github.com/Jedore
 
 from base_mdapi import CMdSpiBase, mdapi
 
 
 class CMdSpi(CMdSpiBase):
-    def __init__(self, *args):
-        super().__init__(*args)
 
     def req(self, instruments):
         """ 订阅行情
