@@ -126,13 +126,15 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         return True
 
     @staticmethod
-    def print_rtn(rsp_rtn):
+    def _print_rtn(rsp_rtn, prefix: str = "", pRspInfo: tdapi.CThostFtdcRspInfoField = None):
         if rsp_rtn:
             params = []
             for name, value in inspect.getmembers(rsp_rtn):
                 if name[0].isupper():
                     params.append(f"{name}={value}")
-            print(" 通知:", ",".join(params))
+            print(f" {prefix}:", ",".join(params))
+            if pRspInfo:
+                print(f"\tErrorID={pRspInfo.ErrorID}, ErrorMsg={pRspInfo.ErrorMsg}")
 
     @staticmethod
     def print(*args, **kwargs):

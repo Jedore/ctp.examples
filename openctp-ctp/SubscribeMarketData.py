@@ -27,7 +27,7 @@ class CMdSpi(CMdSpiBase):
 
     def OnRtnDepthMarketData(self, pDepthMarketData: mdapi.CThostFtdcDepthMarketDataField):
         """ 行情通知 """
-        self.print_rtn(pDepthMarketData)
+        self._print_rtn(pDepthMarketData, '行情通知')
 
 
 if __name__ == '__main__':

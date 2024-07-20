@@ -9,6 +9,7 @@
 # 可以使用监控平台 http://openctp.cn 查看前置服务是否正常
 # 也可以按需配置其他的支持 ctp官方ctpapi库的柜台
 # 注意需要同时修改相应的 user/password/broker_id/authcode/appid 等信息
+# 账户需要到 SimNow 官网申请 https://www.simnow.com.cn/
 
 # SimNow 提供的四个环境
 envs = {

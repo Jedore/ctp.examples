@@ -48,8 +48,8 @@ class CTdSpi(CTdSpiBase):
         self._check_rsp(pRspInfo, pReqTransfer, is_last=bIsLast)
 
     def OnRtnFromBankToFutureByBank(self, pRspTransfer: tdapi.CThostFtdcRspTransferField):
-        """ 期货发起银行资金转期货请求通知 """
-        self.print_rtn(pRspTransfer)
+        """ 期货发起期货资金转银行请求通知 """
+        self._print_rtn(pRspTransfer, "期货发起期货资金转银行请求通知")
 
 
 if __name__ == '__main__':
