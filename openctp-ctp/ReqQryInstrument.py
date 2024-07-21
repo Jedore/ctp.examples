@@ -20,14 +20,14 @@ class CTdSpi(CTdSpiBase):
         # 以下四个条件均可单独作为过滤条件，返回满足所有条件的合约
         # 一个都不填，查询全部合约
         # req.InstrumentID = "AP410"
-        req.ExchangeID = "CFFEX"
+        # req.ExchangeID = "CFFEX"
         # req.ExchangeInstID = "zn2504"
         # req.ProductID = "zn"
         self._check_req(req, self._api.ReqQryInstrument(req, 0))
 
     def OnRspQryInstrument(self, pInstrument: tdapi.CThostFtdcInstrumentField, pRspInfo: tdapi.CThostFtdcRspInfoField,
                            nRequestID: int, bIsLast: bool):
-        """ 请求查询产品响应 """
+        """ 请求查询合约响应 """
 
         self._check_rsp(pRspInfo, pInstrument, is_last=bIsLast)
 

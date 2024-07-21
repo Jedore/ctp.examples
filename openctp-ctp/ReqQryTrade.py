@@ -19,12 +19,12 @@ class CTdSpi(CTdSpiBase):
         req = tdapi.CThostFtdcQryTradeField()
         req.BrokerID = self._broker_id
         req.InvestorID = self._user_id
-        # todo
-        # req.InstrumentID = ""
-        # req.ExchangeID = ""
-        # req.TradeID = ""
-        # req.TradeTimeStart = ""
-        # req.TradeTimeEnd = ""
+        # 以下条件均可单独作为过滤条件，一个都不填，查询全部成交
+        # req.InstrumentID = "ao2408"
+        # req.ExchangeID = "SHFE"
+        # req.TradeID = "         402"
+        # req.TradeTimeStart = "17:00:49"
+        # req.TradeTimeEnd = "17:00:42"
         self._check_req(req, self._api.ReqQryTrade(req, 0))
 
     def OnRspQryTrade(self, pTrade: tdapi.CThostFtdcTradeField, pRspInfo: tdapi.CThostFtdcRspInfoField,

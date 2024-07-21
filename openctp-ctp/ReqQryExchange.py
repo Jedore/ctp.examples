@@ -17,8 +17,7 @@ class CTdSpi(CTdSpiBase):
 
         self.print("请求查询交易所")
         req = tdapi.CThostFtdcQryExchangeField()
-        req.BrokerID = self._broker_id
-        req.InvestorID = self._user_id
+        req.ExchangeID = "SHFE"  # 不传查全部
         self._check_req(req, self._api.ReqQryExchange(req, 0))
 
     def OnRspQryExchange(self, pExchange: tdapi.CThostFtdcExchangeField, pRspInfo: tdapi.CThostFtdcRspInfoField,

@@ -6,7 +6,7 @@
 # @Addr:    https://github.com/Jedore
 
 # 可以使用监控平台 http://openctp.cn 查看前置服务是否正常
-# 账户需要到 openctp 公众号
+# 账户需要到 openctp 公众号, 发送"注册"
 
 # TTS 提供的环境
 envs = {

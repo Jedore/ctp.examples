@@ -17,7 +17,11 @@ class CTdSpi(CTdSpiBase):
 
         self.print("请求查询产品")
         req = tdapi.CThostFtdcQryProductField()
-        # req.ProductID = "ag"  # 不传则查询所有产品
+        # 不传则查询所有产品
+        # req.ProductID = "ag"
+
+        # req.ProductClass = "1"    # 不可过滤
+        # req.ExchangeID = "DCE"    # 不可过滤
         self._check_req(req, self._api.ReqQryProduct(req, 0))
 
     def OnRspQryProduct(self, pProduct: tdapi.CThostFtdcProductField, pRspInfo: tdapi.CThostFtdcRspInfoField,
