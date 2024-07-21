@@ -26,7 +26,6 @@ class CTdSpi(CTdSpiBase):
         """ 请求查询行情响应 """
 
         self._check_rsp(pRspInfo, pDepthMarketData, is_last=bIsLast)
-        print('isLast', bIsLast)
 
 
 if __name__ == '__main__':
