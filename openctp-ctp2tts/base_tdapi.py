@@ -11,6 +11,7 @@ import sys
 import time
 from datetime import datetime as dt
 
+import openctp_ctp
 from openctp_ctp import tdapi
 
 import config
@@ -193,7 +194,8 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         print(" ---")
         print(" 交易日:", self._trading_day)
         print(" 交易系统名称:", pRspUserLogin.SystemName)
-        print(" 后台版本信息:", pRspUserLogin.SysVersion)
+        if openctp_ctp.__version__ > '6.6.7':
+            print(" 后台版本信息:", pRspUserLogin.SysVersion)
 
     def wait_login(self):
         # 登录成功后继续

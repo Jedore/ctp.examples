@@ -11,6 +11,7 @@ import time
 import typing
 from datetime import datetime as dt
 
+import openctp_ctp
 from openctp_ctp import mdapi
 
 import config
@@ -169,7 +170,8 @@ class CMdSpiBase(mdapi.CThostFtdcMdSpi):
         print(" ---")
         print(" 交易日:", self._trading_day)
         print(" 交易系统名称:", pRspUserLogin.SystemName)
-        print(" 后台版本信息:", pRspUserLogin.SysVersion)
+        if openctp_ctp.__version__ > '6.6.7':
+            print(" 后台版本信息:", pRspUserLogin.SysVersion)
         print(" FrontID:", self._front_id)
         print(" SessionID:", self._session_id)
 
