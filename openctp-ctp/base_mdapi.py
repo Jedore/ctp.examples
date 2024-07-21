@@ -125,13 +125,13 @@ class CMdSpiBase(mdapi.CThostFtdcMdSpi):
         return True
 
     @staticmethod
-    def print_rtn(rsp_rtn):
+    def _print_rtn(rsp_rtn, prefix: str = ''):
         if rsp_rtn:
             params = []
             for name, value in inspect.getmembers(rsp_rtn):
                 if name[0].isupper():
                     params.append(f"{name}={value}")
-            print(" 通知:", ",".join(params))
+            print(f" {prefix}:", ",".join(params))
 
     @staticmethod
     def print(*args, **kwargs):
