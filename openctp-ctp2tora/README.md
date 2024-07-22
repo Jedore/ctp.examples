@@ -1,6 +1,7 @@
 # openctp-ctp2tora examples
 
-使用 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 连接 openctp [华鑫证券奇点柜台](https://github.com/openctp/openctp/tree/master/ctp2STP)
+使用 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 连接
+openctp [华鑫证券奇点柜台](https://github.com/openctp/openctp/tree/master/ctp2STP)
 
 ## 快速上手
 
@@ -21,12 +22,13 @@
 ### 使用
 
 - 准备 Python 环境 (3.7 ~ 3.12)
--
-安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)  [openctp-ctp-channels](https://github.com/Jedore/openctp-ctp-channels)
-```bash
-pip install openctp-ctp==6.7.2.*
-pip install openctp-ctp-channels
-```
+- 安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)  [openctp-ctp-channels](https://github.com/Jedore/openctp-ctp-channels)
+
+  ```bash
+  pip install openctp-ctp==6.6.9.*
+  pip install openctp-ctp-channels
+  ```
+
 - 克隆仓库
     ```bash
     git clone https://github.com/Jedore/ctp.examples.git
