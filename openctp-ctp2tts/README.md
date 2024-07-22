@@ -1,5 +1,7 @@
 # openctp-ctp2tts examples
 
+使用 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 连接 openctp [TTS柜台环境](http://openctp.cn/report/openctp%A3%A8TTS%A3%A97x24%BB%B7%BE%B3process%D0%D0%C7%E9.html)
+
 ## 快速上手
 
 ### 说明
@@ -19,12 +21,11 @@
 ### 使用
 
 - 准备 Python 环境 (3.7 ~ 3.12)
--
-安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)  [openctp-ctp-channels](https://github.com/Jedore/openctp-ctp-channels)
-```bash
-pip install openctp-ctp==6.7.2.*
-pip install openctp-ctp-channels
-```
+- 安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)  [openctp-ctp-channels](https://github.com/Jedore/openctp-ctp-channels)
+  ```bash
+  pip install openctp-ctp==6.7.2.*
+  pip install openctp-ctp-channels
+  ```
 - 克隆仓库
     ```bash
     git clone https://github.com/Jedore/ctp.examples.git

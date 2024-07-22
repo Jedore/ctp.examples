@@ -1,7 +1,7 @@
 # openctp-ctp2emt examples
 
 使用 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 连接
-openctp [东方财富EMT](https://github.com/openctp/openctp/tree/master/ctp2EMT)
+ [东方财富EMT](https://github.com/openctp/openctp/tree/master/ctp2EMT)
 
 ## 快速上手
 

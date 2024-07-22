@@ -1,7 +1,7 @@
 # openctp-ctp2tora examples
 
 使用 [openctp-ctp](https://github.com/openctp/openctp-ctp-python) 连接
-openctp [华鑫证券奇点柜台](https://github.com/openctp/openctp/tree/master/ctp2STP)
+ [华鑫证券奇点柜台](https://github.com/openctp/openctp/tree/master/ctp2STP)
 
 ## 快速上手
 
