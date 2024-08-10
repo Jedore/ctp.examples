@@ -18,7 +18,7 @@ class CTdSpi(CTdSpiBase):
         # SimNow 不支持，需要实盘测验
         self.print("期货发起期货资金转银行请求")
         req = tdapi.CThostFtdcReqTransferField()
-        req.TradeCode = "202001"  # 业务功能码: 期货发起银行资金转期货
+        req.TradeCode = "202001"  # 业务功能码: 期货发起期货资金转银行
         req.BankID = "11"  # 银行编码 (通过查询签约银行可以获取银行编码)
         req.BankBranchID = "0000"  # (通过查询签约银行可以获取银行编码)
         req.BrokerID = self._broker_id
