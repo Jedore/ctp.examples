@@ -2,7 +2,7 @@
 
 提供多个 ctp python 代码示例
 
-## 依赖仓库
+## 依赖包
 
 - [openctp-ctp](https://github.com/openctp/openctp-ctp-python)
 - [openctp-ctp-channels](https://github.com/openctp/openctp-ctp-channels)
