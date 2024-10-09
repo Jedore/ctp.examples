@@ -1,100 +1,64 @@
-# openctp-ctp examples
+# openctp-ctp2qq&sina examples
 
 ## 快速上手
 
 ### 说明
 
-提供了 以下 行情API 和 交易API 的多个接口代码示例。
+提供了 以下 行情API接口代码示例。
 
 `config.py` 是配置文件
 
 `base_mdapi.py` 是行情API基类文件，可指定行情前置地址, 包了连接、登录 等基本逻辑
 
-`base_tdapi.py` 是交易API基类文件，可指定交易前置地址, 包了连接、认证、登录 等基本逻辑
-
-其他 `py` 文件均包含了一个具体的业务接口
-
 除了 `config.py`, 其他 `py` 文件均可直接运行
-
-> 注意：示例中的逻辑以 simnow 测试为准。在其他柜台可能逻辑有差异，比如过滤条件，在simnow无效，在其他柜台可能有效。
 
 ### 使用
 
 - 准备 Python 环境 (3.7 ~ 3.12)
-- 安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)
+- 安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)  [openctp-ctp-channels](https://github.com/Jedore/openctp-ctp-channels)
 - 克隆仓库
     ```bash
     git clone https://github.com/Jedore/ctp.examples.git
-    cd ctp.examples/openctp-ctp
+    cd ctp.examples/openctp-ctp2qq&sina
     ```
-- 按需修改配置
-
-  config.py
-
-- 指定环境
-
-  base_mdapi.py / base_tdapi.py
 
 - 运行示例
   ```bash
-  $ python base_tdapi.py
-  >>>>  启动交易Api
-   [2024-07-21 00:26:36.108030]
-   投资者: 226485
-   API版本: v6.7.2_20230913 10:48:10.4926
-   交易前置地址: tcp://180.168.146.187:10130
+  $ python SubscribeMarketData.py
+  >>>>  启动行情Api
+   [2024-10-09 13:05:07.115474]
+   投资者:
+   API版本: V6_7_7
    初始化完成
-  >>>>  交易前置连接成功
-   [2024-07-21 00:26:36.258365]
-  >>>>  客户端认证请求
-   [2024-07-21 00:26:36.258365]
-   发送请求: AppID=simnow_client_test,AuthCode=0000000000000000,BrokerID=9999,UserID=226485,UserProductInfo=
-   响应成功: ErrorID=0, ErrorMsg=正确
-   响应内容: AppID=simnow_client_test,AppType=1,BrokerID=9999,UserID=226485,UserProductInfo=
+  >>>>  行情前置连接成功
+   [2024-10-09 13:05:07.119475]
   >>>>  用户登录请求
-   [2024-07-21 00:26:36.337245]
-   发送请求: BrokerID=9999,ClientIPAddress=,ClientIPPort=0,InterfaceProductInfo=,LoginRemark=,MacAddress=,ProtocolInfo=,TradingDay=,UserID=226485,UserProductInfo=
-   响应成功: ErrorID=0, ErrorMsg=正确
-   响应内容: BrokerID=9999,CZCETime=00:26:36,DCETime=00:26:36,FFEXTime=00:26:36,FrontID=1,GFEXTime=00:26:36,INETime=00:26:36,LoginTime=00:26:39,MaxOrderRef=1,SHFETime=00:26:36,SessionID=-448170154,SysVersion=v6.7.3_20231222 14:00:35.6012.tkernel,SystemName=TradingHosting,TradingDay=20240719,UserID=226485
+   [2024-10-09 13:05:07.119475]
+   发送请求: BrokerID=,ClientIPAddress=,ClientIPPort=0,InterfaceProductInfo=,LoginRemark=,MacAddress=,ProtocolInfo=,TradingDay=,UserID=,UserProductInfo=
+   响应成功: ErrorID=0, ErrorMsg=
+   响应内容: BrokerID=,CZCETime=,DCETime=,FFEXTime=,FrontID=0,GFEXTime=,INETime=,LoginTime=,MaxOrderRef=,SHFETime=,SessionID=0,SysVersion=,SystemName=,TradingDay=,UserID=
    ---
-   交易日: 20240719
-   交易系统名称: TradingHosting
-   后台版本信息: v6.7.3_20231222 14:00:35.6012.tkernel
+   交易日:
+   交易系统名称:
+   后台版本信息:
+   FrontID: 0
+   SessionID: 0
+  >>>>  订阅行情
+   [2024-10-09 13:05:08.119932]
+   发送请求: 600000,000001,00700,AAPL
+
+
+   Enter any key to exit ...
+   行情通知: ActionDay=20241009,AskPrice1=12.14,AskPrice2=12.15,AskPrice3=12.16,AskPrice4=12.17,AskPrice5=12.18,AskVolume1=77700,AskVolume2=235100,AskVolume3=35700,AskVolume4=134400
+  ,AskVolume5=360236,AveragePrice=0.0,BandingLowerPrice=0.0,BandingUpperPrice=0.0,BidPrice1=12.13,BidPrice2=12.12,BidPrice3=12.11,BidPrice4=12.1,BidPrice5=12.09,BidVolume1=23200,Bid
+  Volume2=129000,BidVolume3=66900,BidVolume4=25900,BidVolume5=25500,ClosePrice=0.0,CurrDelta=0.0,ExchangeID=SZSE,ExchangeInstID=000001,HighestPrice=12.63,InstrumentID=000001,LastPri
+  ce=12.13,LowerLimitPrice=0.0,LowestPrice=11.74,OpenInterest=0.0,OpenPrice=12.63,PreClosePrice=12.88,PreDelta=0.0,PreOpenInterest=0.0,PreSettlementPrice=0.0,SettlementPrice=0.0,TradingDay=20241009,Turnover=3518230343.26,UpdateMillisec=0,UpdateTime=13:04:51,UpperLimitPrice=0.0,Volume=288498599
   ```
 
 ## 行情API
 
 - [x] 用户登录请求
 - [x] 订阅行情
-
-## 交易API
-
-- [x] 客户端认证请求
-- [x] 用户登录请求
-- [x] 请求查询投资者结算结果
-- [x] 请求查询结算信息确认
-- [x] 请求查询投资者
-- [x] 请求查询投资者持仓
-- [x] 请求查询投资者持仓明细
-- [x] 请求查询报单
-- [x] 请求查询成交
-- [x] 请求查询资金账户
-- [x] 请求查询合约
-- [x] 请求查询产品
-- [x] 请求查询交易编码
-- [x] 请求查询合约手续费率
-- [x] 请求查询合约保证金率
-- [x] 请求查询报单手续费
-- [x] 请求查询交易所
-- [x] 请求查询签约银行
-- [x] 报单录入请求
-- [x] 报单撤销请求
-- [x] 请求查询行情
-- [x] 用户口令更新请求
-- [x] 期货发起银行资金转期货请求
-- [x] 期货发起期货资金转银行请求
-- [x] 请求查询经纪公司交易参数
-- [x] 请求查询银期签约关系
 
 ## 其他
 
