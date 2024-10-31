@@ -1,4 +1,4 @@
-# ctp.examples
+6# ctp.examples
 
 提供多个 ctp python 代码示例
 
@@ -15,5 +15,3 @@
 - openctp-ctp2emt 东方财富通道
 - openctp-ctp2xtp 中泰证券通道
 - openctp-ctp2qq&sina 中泰证券通道
-- openctp-ctp2xtp 中泰证券通道
-- openctp-ctp2qq&sina 腾讯/新浪 通道
