@@ -14,4 +14,4 @@
 - openctp-ctp2tora 华鑫证券奇点通道
 - openctp-ctp2emt 东方财富通道
 - openctp-ctp2xtp 中泰证券通道
-- openctp-ctp2qq&sina 中泰证券通道
+- openctp-ctp2qq&sina 腾讯/新浪通道
