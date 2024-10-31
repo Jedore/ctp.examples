@@ -1,4 +1,4 @@
-6# ctp.examples
+# ctp.examples
 
 提供多个 ctp python 代码示例
 
