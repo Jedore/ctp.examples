@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询投资者
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINVESTORPOSITION/
+        doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINVESTORPOSITION/
         """
 
         self.print("请求查询投资者持仓")

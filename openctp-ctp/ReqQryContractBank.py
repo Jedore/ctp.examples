@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询签约银行
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYCONTRACTBANK
+        doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYCONTRACTBANK
         """
 
         # SimNow 不支持，需要实盘测验

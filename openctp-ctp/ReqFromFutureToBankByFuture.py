@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 期货发起期货资金转银行请求
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQFROMFUTURETOBANKBYFUTURE/
+        doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQFROMFUTURETOBANKBYFUTURE/
         """
 
         # SimNow 不支持，需要实盘测验

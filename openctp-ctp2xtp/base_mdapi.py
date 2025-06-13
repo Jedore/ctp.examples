@@ -144,7 +144,7 @@ class CMdSpiBase(mdapi.CThostFtdcMdSpi):
         self.print("行情前置连接成功")
 
         self.print("用户登录请求")
-        # 登录 doc: https://ctpapi.jedore.top/6.7.2/HQJK/CTHOSTFTDCMDAPI/REQUSERLOGIN/
+        # 登录 doc: https://ctpdoc.jedore.top/6.6.9/HQJK/CTHOSTFTDCMDAPI/REQUSERLOGIN/
         req = mdapi.CThostFtdcReqUserLoginField()
         req.BrokerID = self._broker_id
         req.UserID = self._user_id

@@ -16,7 +16,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询投资者结算结果
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYSETTLEMENTINFO/
+        doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYSETTLEMENTINFO/
         """
 
         self.print("请求查询投资者结算结果")

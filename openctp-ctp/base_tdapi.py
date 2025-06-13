@@ -197,6 +197,20 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
         if openctp_ctp.__version__ > '6.6.7':
             print(" 后台版本信息:", pRspUserLogin.SysVersion)
 
+    def logout(self):
+        self.print("用户登出请求")
+        req = tdapi.CThostFtdcUserLogoutField()
+        req.BrokerID = self._broker_id
+        req.UserID = self._user_id
+        self._check_req(req, self._api.ReqUserLogout(req, 0))
+
+    def OnRspUserLogout(self, pRspUserLogout: tdapi.CThostFtdcUserLogoutField , pRspInfo, nRequestID, bIsLast):
+        if not self._check_rsp(pRspInfo, pRspUserLogout):
+            return
+
+        print('登出成功')
+
+
     def wait_login(self):
         # 登录成功后继续
         while True:
@@ -214,5 +228,9 @@ class CTdSpiBase(tdapi.CThostFtdcTraderSpi):
 
 if __name__ == "__main__":
     spi = CTdSpiBase()
+
+    spi.wait_last()
+
+    spi.logout()
 
     spi.wait_last()

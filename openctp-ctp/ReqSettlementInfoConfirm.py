@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 投资者结算结果确认
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQSETTLEMENTINFOCONFIRM/
+        doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQSETTLEMENTINFOCONFIRM/
         """
 
         self.print("投资者结算结果确认")

@@ -12,7 +12,7 @@ class CMdSpi(CMdSpiBase):
 
     def req(self, instruments):
         """ 订阅行情
-        doc: https://ctpapi.jedore.top/6.7.2/HQJK/CTHOSTFTDCMDAPI/SUBSCRIBEMARKETDATA/
+        doc: https://ctpdoc.jedore.top/6.6.9/HQJK/CTHOSTFTDCMDAPI/SUBSCRIBEMARKETDATA/
         """
 
         self.print("订阅行情")

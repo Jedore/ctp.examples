@@ -12,7 +12,7 @@ class CTdSpi(CTdSpiBase):
 
     def req(self):
         """ 请求查询行情，只能查询当前快照，不能查询历史行情。
-        doc: https://ctpapi.jedore.top/6.7.2/JYJK/CTHOSTFTDCTRADERSPI/REQQRYDEPTHMARKETDATA/
+        doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYDEPTHMARKETDATA/
         """
 
         self.print("请求查询行情，只能查询当前快照，不能查询历史行情。")
