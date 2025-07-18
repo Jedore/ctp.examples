@@ -11,7 +11,7 @@ from base_tdapi import CTdSpiBase, tdapi
 class CTdSpi(CTdSpiBase):
 
     def req(self):
-        """ 请求查询投资者
+        """ 请求查询投资者持仓
         doc: https://ctpdoc.jedore.top/6.6.9/JYJK/CTHOSTFTDCTRADERSPI/REQQRYINVESTORPOSITION/
         """
 
