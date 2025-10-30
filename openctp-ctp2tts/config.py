@@ -11,33 +11,33 @@
 # TTS 提供的环境
 envs = {
     "7x24": {
-        "td": "tcp://121.37.80.177:20002",
-        "md": "tcp://121.37.80.177:20004",
+        "td": "tcp://724.openctp.cn:30001",
+        "md": "tcp://724.openctp.cn:30011",
         "user_id": "",
         "password": "",
-        "broker_id": "",
+        "broker_id": "9999",
         "authcode": "",
         "appid": "",
         "user_product_info": "",
     },
     # 仿真
     "simu": {
-        "td": "tcp://121.37.90.193:20002",
+        "td": "tcp://trading.openctp.cn:30002",
         "md": "",
         "user_id": "",
         "password": "",
-        "broker_id": "",
+        "broker_id": "9999",
         "authcode": "",
         "appid": "",
         "user_product_info": "",
     },
     # 仿真vip
     "simu-vip": {
-        "td": "tcp://42.192.226.242:20002",
+        "td": "tcp://vip.openctp.cn:30003",
         "md": "",
         "user_id": "",
         "password": "",
-        "broker_id": "",
+        "broker_id": "9999",
         "authcode": "",
         "appid": "",
         "user_product_info": "",
