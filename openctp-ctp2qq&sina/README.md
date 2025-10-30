@@ -14,7 +14,7 @@
 
 ### 使用
 
-- 准备 Python 环境 (3.7 ~ 3.12)
+- 准备 Python 环境 (3.7 ~ 3.14)
 - 安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)  [openctp-ctp-channels](https://github.com/Jedore/openctp-ctp-channels)
 - 克隆仓库
     ```bash
