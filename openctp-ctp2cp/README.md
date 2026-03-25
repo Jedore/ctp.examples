@@ -20,7 +20,7 @@
 
 ### 使用
 
-- 准备 Python 环境 (3.7 ~ 3.14)
+- 准备 Python 环境 (3.8 ~ 3.14)
 - 安装 [openctp-ctp](https://github.com/openctp/openctp-ctp-python)
 - 克隆仓库
     ```bash
